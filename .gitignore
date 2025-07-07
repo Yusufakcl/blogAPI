@@ -1,0 +1,32 @@
+# Bağımlılıklar (Dependencies)
+# Projenin çalışması için gerekli tüm paketler. 'npm install' ile herkes indirebilir.
+/node_modules
+
+# Derlenmiş Kod (Compiled Code)
+# TypeScript kodunun derlenmesiyle oluşan JavaScript dosyaları. Bunları da göndermeye gerek yok.
+# Herkes 'npm run build' ile kendisi oluşturabilir.
+/dist
+/build
+
+# Ortam Değişkenleri (Environment Variables)
+# ASLA GÖNDERİLMEZ! Hassas ve ortama özel bilgiler içerir.
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Log Dosyaları (Log Files)
+# Hata ve işlem kayıtları. Genellikle lokalde kalır.
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Test Raporları (Test Reports)
+coverage
+
+# İşletim Sistemi ve Editör Dosyaları (OS & Editor Files)
+.DS_Store
+Thumbs.db
+.vscode/
