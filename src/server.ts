@@ -7,6 +7,7 @@ import compression from 'compression';
 import helmet from 'helmet';
 import limiter from '@/lib/express-rate-limit';
 import v1Routes from '@/routes/v1';
+import {connectToDatabase,disconnectFromDatabase} from '@/lib/mongoose'
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use(limiter);
 
 (async () => {
     try{
+        await connectToDatabase();
         app.use('/api/v1', v1Routes);
         app.listen(config.PORT,()=>{
             console.log(`server running http://localhost:${config.PORT}`);
@@ -57,6 +59,7 @@ app.use(limiter);
 
 const handleServerShutdown = async () => {
     try{
+        await disconnectFromDatabase();
         console.log("SHUTTING DOWN SERVER...");
         process.exit(0); // Exit the process gracefully
     }catch(err){
