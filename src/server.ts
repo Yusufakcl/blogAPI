@@ -17,9 +17,10 @@ const corsOptions:CorsOptions = {
         if (config.NODE_ENV === 'development' || !origin || config.WHITELIST_ORIGINS.includes(origin)) {
             callback(null, true);
         }else{
-            callback(new Error(`CORS error: ${origin} is not allowed by CORS`),false);
+            const errorMessage = `CORS error: ${origin} is not allowed by CORS`;
+            logger.error(errorMessage);
+            callback(new Error(errorMessage),false);
         }
-        logger.error(`CORS error: ${origin} is not allowed by CORS`);
     }
 }
 
