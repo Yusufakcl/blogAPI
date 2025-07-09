@@ -6,6 +6,8 @@ import User from "@/models/user";
 import login from "@/controllers/v1/auth/login";
 import bcrypt from 'bcrypt';
 import refreshToken from "@/controllers/v1/auth/refresh_token";
+import logout from "@/controllers/v1/auth/logout";
+import authenticate from "@/middleware/authenticate";
 
 
 const router=Router();
@@ -84,5 +86,7 @@ router.post('/refresh-token',
     .isJWT()
     .withMessage('Invalid refresh token'),validationError
 ,refreshToken);
+
+router.post('/logout',authenticate,logout)
 export default router;
 
