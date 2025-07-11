@@ -17,7 +17,9 @@ const config={
     WHITELIST_ADMINS_MAIL: [
         "yusuf.akcal02@gmail.com",
         "yakcal548@gmail.com"
-    ]
+    ],
+    defaultResLimit:20,
+    defaultResOffset:0,
     
 
 }
